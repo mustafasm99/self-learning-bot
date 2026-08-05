@@ -504,3 +504,31 @@ Run the project
 python run.py
 ```
 
+
+## 🚀 How the AI Learns
+
+```mermaid
+flowchart TD
+
+    A["🤖 Agent Starts"] --> B["👀 Observe Current State"]
+
+    B --> C["🧠 Choose Action"]
+
+    C --> D["➡️ Move"]
+
+    D --> E["🌍 Environment Responds"]
+
+    E --> F["🎁 Receive Reward"]
+
+    F --> G["📊 Update Q-Table"]
+
+    G --> H{"🏆 Goal Reached?"}
+
+    H -->|No| B
+
+    H -->|Yes| I["✅ Episode Finished"]
+
+    I --> J["🔁 Start New Episode"]
+
+    J --> B
+```
