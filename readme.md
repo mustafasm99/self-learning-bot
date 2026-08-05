@@ -532,3 +532,24 @@ flowchart TD
 
     J --> B
 ```
+
+
+## 📈 Training Progress
+
+```mermaid
+graph LR
+
+    A[Episode 1]
+
+    B[Episode 50]
+
+    C[Episode 200]
+
+    D[Episode 1000]
+
+    A -->|"Random"| B
+
+    B -->|"Learning"| C
+
+    C -->|"Near Optimal"| D
+```
