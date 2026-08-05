@@ -451,7 +451,7 @@ Everything from game-playing agents to autonomous robots follows this same princ
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/RL-Quest.git
+git clone https://github.com/mustafasm99/self-learning-bot
 ```
 
 Move into the project
