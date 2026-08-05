@@ -4,7 +4,7 @@
 
 ### Teaching an AI Agent to Explore, Learn, and Succeed
 
-<img src="assets/banner.png" width="100%">
+<img src="assets/banner2.png" width="100%">
 
 <br>
 
