@@ -79,33 +79,6 @@ RL-Quest/
 └── LICENSE
 ```
 
-
-# 🤖 RL Quest
-
-(Banner)
-
-(Badges)
-
-Short introduction
-
----
-
-# 📸 Screenshots
-
-Image
-
-Explain what the user is seeing.
-
-Image
-
-Explain what changed.
-
-Image
-
-Explain the learning progress.
-
----
-
 # 🧠 How Does the AI Learn?
 
 ## The Problem
@@ -408,41 +381,6 @@ Low epsilon
 Use experience
 ```
 
----
-
-# 🏗 Project Architecture
-
-```
-RL Quest
-
-│
-
-├── run.py
-
-│
-
-├── game/
-
-│   ├── world.py
-
-│   ├── agent.py
-
-│   ├── qlearning.py
-
-│   ├── animation.py
-
-│   └── draw.py
-
-│
-
-├── assets/
-
-│
-
-└── docs/
-```
-
----
 
 # 🔁 Game Loop
 
@@ -477,30 +415,6 @@ Render
 
 Repeat
 ```
-
----
-
-# 📂 Project Structure
-
-(project tree)
-
----
-
-# ⚙ Installation
-
-...
-
----
-
-# 🚀 Run
-
-...
-
----
-
-# 📦 Requirements
-
-...
 
 ---
 
