@@ -33,3 +33,100 @@ Watch the agent explore the environment, collide with obstacles, receive rewards
 - 🎞 Animated robot
 - 🪨 Obstacles and maze generation
 - 🎯 Goal-based reward system
+
+
+## 📸 Screenshots
+
+### Current Gameplay
+
+<p align="center">
+  <img src="assets/image.png" width="700">
+</p>
+
+### Learning Process
+
+<p align="center">
+  <img src="docs/screenshot2.png" width="700">
+</p>
+
+### Forest Environment
+
+<p align="center">
+  <img src="docs/screenshot3.png" width="700">
+</p>
+
+## 📂 Project Structure
+
+```text
+RL-Quest/
+│
+├── assets/
+│   ├── grass/
+│   ├── robot/
+│   ├── wall/
+│   └── goal/
+│
+├── docs/
+│   ├── banner.png
+│   ├── screenshot1.png
+│   └── demo.gif
+│
+├── game/
+│   ├── agent.py
+│   ├── animation.py
+│   ├── draw.py
+│   ├── qlearning.py
+│   └── world.py
+│
+├── run.py
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/RL-Quest.git
+```
+
+Move into the project
+
+```bash
+cd RL-Quest
+```
+
+Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the project
+
+```bash
+python run.py
+```
+
