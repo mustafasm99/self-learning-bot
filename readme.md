@@ -43,18 +43,6 @@ Watch the agent explore the environment, collide with obstacles, receive rewards
   <img src="assets/image.png" width="700">
 </p>
 
-### Learning Process
-
-<p align="center">
-  <img src="docs/screenshot2.png" width="700">
-</p>
-
-### Forest Environment
-
-<p align="center">
-  <img src="docs/screenshot3.png" width="700">
-</p>
-
 ## 📂 Project Structure
 
 ```text
