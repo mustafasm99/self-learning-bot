@@ -19,7 +19,7 @@ GRID_SIZE = 10
 FPS = 20
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Q-Learning Grid World")
+pygame.display.set_caption("Q-Learning Game")
 
 clock = pygame.time.Clock()
 

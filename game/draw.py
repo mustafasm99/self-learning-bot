@@ -1,4 +1,6 @@
 import pygame
+import os
+from game.animation import Animation
 
 
 class Drawing:
@@ -29,6 +31,35 @@ class Drawing:
         self.TRUNK = (101, 67, 33)
         self.STONE = (90, 90, 90)
         self.GOAL = (255, 215, 0)
+
+        asset_path = os.path.join("assets")
+        self.grass = pygame.image.load(
+            os.path.join(asset_path, "tree", "grass.png")
+        ).convert_alpha()
+
+        self.grass = pygame.transform.scale(
+            self.grass, (self.cell_size, self.cell_size)
+        )
+
+        self.tree = pygame.image.load(
+            os.path.join(asset_path, "wall", "00.png")
+        ).convert_alpha()
+
+        self.tree = pygame.transform.scale(self.tree, (self.cell_size, self.cell_size))
+
+        self.battery = pygame.image.load(
+            os.path.join(asset_path, "goal", "battery.png")
+        ).convert_alpha()
+
+        self.battery = pygame.transform.scale(self.battery, (self.cell_size, self.cell_size))
+
+        self.robot_idle = Animation(
+            "assets/robot/idle.gif", (self.cell_size, self.cell_size)
+        )
+
+        self.robot_walk = Animation(
+            "assets/robot/run.gif", (self.cell_size, self.cell_size)
+        )
 
     # -------------------------------------
     # Draw the background
@@ -94,66 +125,31 @@ class Drawing:
                     self.cell_size,
                     self.cell_size,
                 )
-                pygame.draw.rect(self.screen, self.GRASS, rect)
+                self.screen.blit(self.grass, (rect.x, rect.y))
 
                 if value == 1:
                     # Tree trunk
-                    pygame.draw.rect(
-                        self.screen,
-                        self.TRUNK,
-                        (rect.centerx - 4, rect.bottom - 18, 8, 16),
-                    )
-
-                    # Leaves
-
-                    pygame.draw.circle(
-                        self.screen,
-                        self.TREE,
-                        (rect.centerx, rect.centery - 5),
-                        self.cell_size // 3,
-                    )
-
-                    pygame.draw.circle(
-                        self.screen,
-                        (55, 120, 55),
-                        (rect.centerx - 10, rect.centery),
-                        self.cell_size // 4,
-                    )
-
-                    pygame.draw.circle(
-                        self.screen,
-                        (55, 120, 55),
-                        (rect.centerx + 10, rect.centery),
-                        self.cell_size // 4,
-                    )
+                    self.screen.blit(self.tree, rect.topleft)
 
                 elif value == 2:
-                    pygame.draw.circle(self.screen, self.GOAL, rect.center, 16)
-                    pygame.draw.circle(self.screen, (255, 255, 255), rect.center, 6)
+                    # Battery
+                    self.screen.blit(self.battery, rect.topleft)
 
     def draw_agent(self, agent):
-        x = int(agent.pixel_x)
-        y = int(agent.pixel_y)
+        x = int(agent.pixel_x - self.cell_size / 2)
+        y = int(agent.pixel_y - self.cell_size / 2)
 
-        # Body
-        pygame.draw.circle(self.screen, (70, 120, 255), (x, y), 18)
+        if agent.is_moving:
+            self.robot_walk.update()
 
-        # Eyes
-        pygame.draw.circle(self.screen, (255, 255, 255), (x - 6, y - 4), 3)
+            image = self.robot_walk.get_frame()
 
-        pygame.draw.circle(self.screen, (255, 255, 255), (x + 6, y - 4), 3)
+        else:
+            self.robot_idle.update()
 
-        pygame.draw.circle(self.screen, (0, 0, 0), (x - 6, y - 4), 1)
+            image = self.robot_idle.get_frame()
 
-        pygame.draw.circle(self.screen, (0, 0, 0), (x + 6, y - 4), 1)
-
-        # Antenna
-        pygame.draw.line(self.screen, (40, 40, 40), (x, y - 18), (x, y - 28), 2)
-
-        pygame.draw.circle(self.screen, (255, 80, 80), (x, y - 30), 3)
-
-        # Smile
-        pygame.draw.arc(self.screen, (30, 30, 30), (x - 8, y - 2, 16, 10), 0, 3.14, 2)
+        self.screen.blit(image, (x, y))
 
     # -------------------------------------
     # Draw everything
@@ -165,6 +161,6 @@ class Drawing:
 
         self.draw_world(world)
 
-        self.draw_grid()
+        # self.draw_grid()
 
         self.draw_agent(agent)

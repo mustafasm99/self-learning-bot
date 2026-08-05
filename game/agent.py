@@ -78,7 +78,7 @@ class Agent:
 
     def update(self):
 
-        speed = 0.20
+        speed = 0.50
 
         self.pixel_x += (self.target_x - self.pixel_x) * speed
         self.pixel_y += (self.target_y - self.pixel_y) * speed
@@ -86,7 +86,7 @@ class Agent:
         dx = abs(self.target_x - self.pixel_x)
         dy = abs(self.target_y - self.pixel_y)
 
-        if dx < 1 and dy < 1:
+        if dx < 5 and dy < 5:
             self.pixel_x = self.target_x
             self.pixel_y = self.target_y
 
